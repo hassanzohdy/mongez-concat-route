@@ -1,12 +1,12 @@
 {
-  "name": "@mongez/concat-route",
-  "version": "1.0.0",
-  "description": "A lightweight package to concat routes segments.",
-  "main": "src/index.ts",
-  "author": "hassanzohdy",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/hassanzohdy/mongez-concat-route"
-  },
-  "license": "MIT"
+    "name": "@mongez/concat-route",
+    "version": "1.0.0",
+    "description": "A lightweight package to concat routes segments.",
+    "main": "src/index.ts",
+    "author": "hassanzohdy",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/hassanzohdy/mongez-concat-route"
+    },
+    "license": "MIT"
 }
