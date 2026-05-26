@@ -1,7 +1,9 @@
 ---
 name: mongez-concat-route-overview
-description: High-level orientation to @mongez/concat-route — what it does, how to install and import it, its mental model, and where its scope ends.
-when_to_use: User is encountering @mongez/concat-route for the first time, asks what the package does, needs install or import instructions, or wants to understand scope boundaries versus sibling packages like @mongez/query-string or @mongez/react-router.
+description: |
+  High-level orientation to `@mongez/concat-route` — what it does, how to install and import it, its mental model, and where its scope ends.
+  TRIGGER when: code imports `concatRoute` from `@mongez/concat-route` for the first time in a file; user asks "what does @mongez/concat-route do", "how do I install @mongez/concat-route", "should I use concatRoute or path.posix.join", or "where does concat-route's scope end vs query-string/react-router"; `import concatRoute from "@mongez/concat-route"` appears alongside questions about purpose or scope.
+  SKIP: deep behavior/edge-case questions — use `mongez-concat-route-concat-route`; idiomatic application patterns — use `mongez-concat-route-recipes`; query strings — use `mongez-query-string-*`; routing patterns — use `mongez-react-router-*`.
 ---
 # Overview
 

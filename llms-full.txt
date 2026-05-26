@@ -1,5 +1,9 @@
 # @mongez/concat-route — full reference
 
+> **Auto-trigger when loading this full reference:** code uses the default export `concatRoute` or matches `import concatRoute from "@mongez/concat-route"`; user asks about joining/concatenating URL path segments, normalizing slashes, building API URLs, locale-prefixed routes, normalizing a configurable base path, paginated routes, sub-resources, spreading a breadcrumb array, why the result is missing a leading slash, what `concatRoute` returns for empty/`null`/`undefined`, or "should I use `concatRoute` or `path.posix.join`"; helpers like `userUrl(id)` or `route(locale, ...rest)` appear near the import.
+>
+> **Skip when:** query-string parsing/building (use `@mongez/query-string`); absolute URL composition with protocol/host (use the platform `URL`); route pattern matching like `/users/:id` (use `@mongez/react-router`); percent-encoding (use `encodeURIComponent`); `node:path` / `path.posix.join` or other generic string joiners.
+
 > A tiny, dependency-free path joiner. This is the concatenated reference; load `llms.txt` for the structured index instead.
 
 ## Install

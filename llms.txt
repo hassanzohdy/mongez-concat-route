@@ -7,16 +7,19 @@ This package has a single public surface: the default export `concatRoute(...seg
 ## Docs
 
 - [Overview](https://raw.githubusercontent.com/hassanzohdy/mongez-concat-route/main/skills/overview.md): Pitch, install, mental model.
+  - *Auto-trigger:* Load on first `import concatRoute from "@mongez/concat-route"` or when the user asks what the package does, how to install it, or scope vs siblings.
 - [README](https://raw.githubusercontent.com/hassanzohdy/mongez-concat-route/main/README.md): Marketing-style index with full edge-case table.
 - [Changelog](https://raw.githubusercontent.com/hassanzohdy/mongez-concat-route/main/CHANGELOG.md): Release notes.
 
 ## Reference
 
 - [concat-route](https://raw.githubusercontent.com/hassanzohdy/mongez-concat-route/main/skills/concat-route.md): The full function reference — signature, normalization rules, behavior table, edge cases, return contract.
+  - *Auto-trigger:* Load when calling `concatRoute` in non-trivial code or debugging its normalization, slash-collapse, or unexpected output for edge inputs.
 
 ## Recipes
 
 - [Recipes](https://raw.githubusercontent.com/hassanzohdy/mongez-concat-route/main/skills/recipes.md): Building API URLs, locale prefixes, base paths, paginated routes, sub-resources.
+  - *Auto-trigger:* Load when building API URL helpers, locale-prefixed routes, base-path normalizers, query-string composition, or spreading breadcrumb arrays via `concatRoute`.
 
 ## Quick rules
 

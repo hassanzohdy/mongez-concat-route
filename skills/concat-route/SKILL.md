@@ -1,7 +1,9 @@
 ---
 name: mongez-concat-route-concat-route
-description: Complete function reference for concatRoute — signature, normalization pipeline, return contract, full behavior table, edge cases, and what to avoid.
-when_to_use: User imports concatRoute from @mongez/concat-route, is calling concatRoute in non-trivial code, needs to understand exact normalization behavior, wants the behavior table for a specific input, or is debugging unexpected output from the function.
+description: |
+  Complete function reference for `concatRoute` — signature, normalization pipeline, return contract, full behavior table, edge cases, and what to avoid.
+  TRIGGER when: code imports `concatRoute` from `@mongez/concat-route`; user asks "how do I join URL path segments", "how does concatRoute normalize slashes", "why is my path missing a leading slash", or "what does concatRoute return for empty/null/undefined"; `import concatRoute from "@mongez/concat-route"` appears or the user debugs unexpected output from the function.
+  SKIP: query-string parsing/building — use `mongez-query-string-*` skills; absolute URL composition with protocol/host — use the platform `URL`; route pattern matching like `/users/:id` — use `mongez-react-router-*` skills; native `path.posix.join` or unrelated string joiners.
 ---
 # concatRoute
 
