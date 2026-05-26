@@ -1,6 +1,6 @@
 {
   "name": "@mongez/concat-route",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "A tiny, dependency-free path joiner. Concatenates any number of segments into a single normalized leading-slash path, handling stray slashes, empty segments, and falsy values.",
   "main": "src/index.ts",
   "sideEffects": false,
