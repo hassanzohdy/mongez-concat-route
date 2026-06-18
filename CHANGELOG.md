@@ -1,10 +1,6 @@
 # Changelog — @mongez/concat-route
 
-## Unreleased
-
-### Fixed
-
-- _(No public-API behavior changes in this pass — the function's output is identical to v1.0.0. Bugs noticed and left in place are tracked as skipped tests in `src/__tests__/concat-route.test.ts`; see the file:line comments inside.)_
+## [1.1.4] — 2026-05-26
 
 ### Added
 
@@ -13,14 +9,6 @@
 - **Test suite**. Vitest tests covering empty input, root segments, falsy filtering, leading/trailing slash stripping, multi-slash collapse, embedded slashes, query strings, hash fragments, and known-quirk cases (skipped).
 - **CI**. GitHub Actions workflow: Node 18/20/22 × Ubuntu, plus Node 20 × Windows.
 - **Package metadata**. `keywords`, `sideEffects: false`, and `test`/`test:watch` scripts. `vitest` and `typescript` added as devDependencies.
-
-### Changed
-
-- _(None — the public API of `concatRoute` is unchanged.)_
-
-### Removed
-
-- _(None.)_
 
 ### Tests
 
