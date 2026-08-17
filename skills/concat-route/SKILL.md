@@ -2,8 +2,6 @@
 name: mongez-concat-route-concat-route
 description: |
   Complete function reference for `concatRoute` — signature, normalization pipeline, return contract, full behavior table, edge cases, and what to avoid.
-  TRIGGER when: code imports `concatRoute` from `@mongez/concat-route`; user asks "how do I join URL path segments", "how does concatRoute normalize slashes", "why is my path missing a leading slash", or "what does concatRoute return for empty/null/undefined"; `import concatRoute from "@mongez/concat-route"` appears or the user debugs unexpected output from the function.
-  SKIP: query-string parsing/building — use `mongez-query-string-*` skills; absolute URL composition with protocol/host — use the platform `URL`; route pattern matching like `/users/:id` — use `mongez-react-router-*` skills; native `path.posix.join` or unrelated string joiners.
 ---
 # concatRoute
 
@@ -85,6 +83,6 @@ concatRoute(base, ...crumbs);
 
 ## Trivia
 
-- The function does NOT collapse `.` or `..` segments — `concatRoute(".", "..")` returns `"/./.."`.
+- Dot segments ARE resolved (since v1.2.0): `.` is dropped and `..` pops the previous segment, clamped at the root. `concatRoute("/a/b", "../c")` → `"/a/c"`; `concatRoute(".", "..")` → `"/"`. This keeps a segment coming from a route param or API value (`"../../admin"`) from escaping the prefix it was joined to.
 - It does NOT trim whitespace — `concatRoute(" ")` returns `"/ "`.
 - It does NOT case-fold or lowercase — `concatRoute("/Users")` returns `"/Users"`.

@@ -3,6 +3,27 @@ function trim(text: string): string {
 }
 
 /**
+ * Resolve `.` and `..` segments so the joined path can never escape its
+ * base path (`..` beyond the root is dropped instead of climbing above it).
+ */
+function resolveDotSegments(path: string): string {
+  const resolved: string[] = [];
+
+  for (const part of path.split("/")) {
+    if (!part || part === ".") continue;
+
+    if (part === "..") {
+      resolved.pop();
+      continue;
+    }
+
+    resolved.push(part);
+  }
+
+  return resolved.join("/");
+}
+
+/**
  * Concatenate the given paths to one single path
  *
  * @param   {...string} segments
@@ -14,5 +35,5 @@ export default function concatRoute(...segments: string[]) {
     .map((segment) => "/" + trim(segment))
     .join("");
 
-  return "/" + trim(path.replace(/(\/)+/g, "/"));
+  return "/" + resolveDotSegments(trim(path.replace(/(\/)+/g, "/")));
 }

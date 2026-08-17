@@ -212,9 +212,8 @@ describe("concatRoute — preserved characters", () => {
     expect(concatRoute("a ", " b")).toBe("/a / b");
   });
 
-  it("does NOT collapse dot segments", () => {
-    expect(concatRoute(".", "..")).toBe("/./..");
-    expect(concatRoute("a", ".", "b")).toBe("/a/./b");
+  it("collapses '.' segments", () => {
+    expect(concatRoute("a", ".", "b")).toBe("/a/b");
   });
 
   it("does NOT decode percent-encoded sequences", () => {
@@ -225,6 +224,29 @@ describe("concatRoute — preserved characters", () => {
 
   it("does NOT alter unicode characters", () => {
     expect(concatRoute("café", "naïve")).toBe("/café/naïve");
+  });
+});
+
+describe("concatRoute — dot-segment traversal", () => {
+  it("drops '..' instead of letting it climb above the joined base", () => {
+    expect(concatRoute("uploads", "../../etc/passwd")).toBe("/etc/passwd");
+    expect(concatRoute("..", "..", "etc", "passwd")).toBe("/etc/passwd");
+  });
+
+  it("resolves '..' against a preceding segment within the same call", () => {
+    expect(concatRoute("a", "b", "..", "c")).toBe("/a/c");
+    expect(concatRoute("a", "..", "b")).toBe("/b");
+  });
+
+  it("drops standalone '.' and '..' segments entirely", () => {
+    expect(concatRoute(".", "..")).toBe("/");
+  });
+
+  it("never produces a leading '../' or an embedded '/../' in the output", () => {
+    const result = concatRoute("api", "v1", "../../../secret");
+    expect(result.startsWith("/..")).toBe(false);
+    expect(result.includes("/../")).toBe(false);
+    expect(result).toBe("/secret");
   });
 });
 
