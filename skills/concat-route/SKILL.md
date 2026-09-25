@@ -83,6 +83,6 @@ concatRoute(base, ...crumbs);
 
 ## Trivia
 
-- Dot segments ARE resolved (since v1.2.0): `.` is dropped and `..` pops the previous segment, clamped at the root. `concatRoute("/a/b", "../c")` → `"/a/c"`; `concatRoute(".", "..")` → `"/"`. This keeps a segment coming from a route param or API value (`"../../admin"`) from escaping the prefix it was joined to.
+- Dot segments ARE resolved (since v1.2.0): `.` is dropped and `..` pops the previous joined segment, clamped only at the root. `concatRoute("/a/b", "../c")` → `"/a/c"`; `concatRoute(".", "..")` → `"/"`. Do not treat this as a prefix-security boundary: `concatRoute("uploads", "../../etc/passwd")` returns `"/etc/passwd"`.
 - It does NOT trim whitespace — `concatRoute(" ")` returns `"/ "`.
 - It does NOT case-fold or lowercase — `concatRoute("/Users")` returns `"/Users"`.
